@@ -17,7 +17,7 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping
-    public List<Usuario> getAll(@RequestParam(required = false) String nome) {
+    public List<UsuarioResponse> getAll(@RequestParam(required = false) String nome) {
         return usuarioService.getAll(nome);
     }
 
