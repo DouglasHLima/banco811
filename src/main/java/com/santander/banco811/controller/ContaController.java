@@ -21,7 +21,7 @@ public class ContaController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public ContaResponse criarConta(
-            @RequestParam("ûserId") Integer userId,
+            @PathVariable("ûserId") Integer userId,
             @RequestBody ContaRequest conta){
         return contaService.create(userId, conta);
     }
