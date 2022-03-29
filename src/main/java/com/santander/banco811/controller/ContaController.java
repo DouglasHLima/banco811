@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("conta")
 public class ContaController {
@@ -22,12 +24,9 @@ public class ContaController {
     )
     public ContaResponse criarConta(
             @PathVariable("ûserId") Integer userId,
-            @RequestBody ContaRequest conta){
-        return contaService.create(userId, conta);
+            @Valid @RequestBody ContaRequest contaRequest){
+        return contaService.create(userId, contaRequest);
     }
-
-
-
 
 
 }

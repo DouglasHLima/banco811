@@ -9,7 +9,7 @@ import java.util.List;
 public interface UsuarioService {
     List<UsuarioResponse> getAll(String nome);
     UsuarioResponse create(UsuarioRequest usuarioRequest);
-    Usuario getById(Integer id);
-    Usuario update(UsuarioRequest usuarioRequest, Integer id);
+    UsuarioResponse getById(Integer id);
+    UsuarioResponse update(UsuarioRequest usuarioRequest, Integer id);
     void delete(Integer id);
 }

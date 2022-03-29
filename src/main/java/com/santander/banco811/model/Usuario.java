@@ -41,7 +41,7 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    List<Conta> conts;
+    List<Conta> contas;
 
 
     public Usuario(UsuarioRequest usuarioRequest){

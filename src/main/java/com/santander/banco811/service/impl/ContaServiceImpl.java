@@ -2,10 +2,12 @@ package com.santander.banco811.service.impl;
 
 import com.santander.banco811.dto.ContaRequest;
 import com.santander.banco811.dto.ContaResponse;
+import com.santander.banco811.dto.UsuarioResponse;
 import com.santander.banco811.mappers.ContaMapper;
 import com.santander.banco811.model.Conta;
 import com.santander.banco811.model.Usuario;
 import com.santander.banco811.repository.ContaRepository;
+import com.santander.banco811.repository.UsuarioRepository;
 import com.santander.banco811.service.ContaService;
 import com.santander.banco811.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ public class ContaServiceImpl implements ContaService {
     @Autowired
     ContaRepository contaRepository;
     @Autowired
-    UsuarioService usuarioService;
+    UsuarioRepository usuarioRepository;
     @Autowired
     ContaMapper contaMapper;
 
@@ -31,7 +33,7 @@ public class ContaServiceImpl implements ContaService {
 
     @Override
     public ContaResponse create(Integer usuarioId, ContaRequest contaRequest) {
-        Usuario found = usuarioService.getById(usuarioId);
+        Usuario found = usuarioRepository.findById(usuarioId).orElseThrow();
         Conta novaConta = contaMapper.toEntity(contaRequest);
         novaConta.setUsuario(found);
         Conta saved = contaRepository.save(novaConta);

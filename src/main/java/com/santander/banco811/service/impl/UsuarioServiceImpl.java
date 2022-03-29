@@ -38,15 +38,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario getById(Integer id) {
-        return usuarioRepository.findById(id).orElseThrow();
+    public UsuarioResponse getById(Integer id) {
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow();
+        return usuarioMapper.toResponse(usuario);
     }
 
     @Override
-    public Usuario update(UsuarioRequest usuarioRequest, Integer id) {
+    public UsuarioResponse update(UsuarioRequest usuarioRequest, Integer id) {
         Usuario usuario = usuarioRepository.findById(id).orElseThrow();
         BeanUtils.copyProperties(usuario,usuarioRequest);
-        return usuarioRepository.save(usuario);
+        Usuario saved = usuarioRepository.save(usuario);
+        return usuarioMapper.toResponse(saved);
     }
 
     @Override
