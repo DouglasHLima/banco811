@@ -1,6 +1,5 @@
 package com.santander.banco811.dto;
 
-import com.santander.banco811.model.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
