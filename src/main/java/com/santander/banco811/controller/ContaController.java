@@ -2,8 +2,6 @@ package com.santander.banco811.controller;
 
 import com.santander.banco811.dto.ContaRequest;
 import com.santander.banco811.dto.ContaResponse;
-import com.santander.banco811.mappers.ContaMapper;
-import com.santander.banco811.model.Conta;
 import com.santander.banco811.service.ContaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +27,4 @@ public class ContaController {
             @Valid @RequestBody ContaRequest contaRequest){
         return contaService.create(userId, contaRequest);
     }
-
-
 }
