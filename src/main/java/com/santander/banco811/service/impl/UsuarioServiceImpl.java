@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 public class UsuarioServiceImpl implements UsuarioService {
 
     @Autowired
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
     @Autowired
-    UsuarioMapper usuarioMapper;
+    private UsuarioMapper usuarioMapper;
 
     @Override
     public List<UsuarioResponse> getAll(String nome) {

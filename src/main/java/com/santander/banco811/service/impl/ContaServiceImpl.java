@@ -11,6 +11,7 @@ import com.santander.banco811.repository.UsuarioRepository;
 import com.santander.banco811.service.ContaService;
 import com.santander.banco811.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,11 +21,11 @@ import java.util.List;
 public class ContaServiceImpl implements ContaService {
 
     @Autowired
-    ContaRepository contaRepository;
+    private ContaRepository contaRepository;
     @Autowired
-    UsuarioRepository usuarioRepository;
+    private UsuarioRepository usuarioRepository;
     @Autowired
-    ContaMapper contaMapper;
+    private ContaMapper contaMapper;
 
     @Override
     public List<Conta> getAll() {
