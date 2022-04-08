@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-public class UsuarioResponse {
+public class UserResponse {
     private Integer id;
     private String cpf;
     private String nome;

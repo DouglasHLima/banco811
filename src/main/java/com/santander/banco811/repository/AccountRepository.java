@@ -1,7 +1,7 @@
 package com.santander.banco811.repository;
 
-import com.santander.banco811.model.TipoConta;
-import com.santander.banco811.model.Conta;
+import com.santander.banco811.model.AccountType;
+import com.santander.banco811.model.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,26 +12,26 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface ContaRepository extends JpaRepository<Conta, Integer> {
-    List<Conta> findBySaldoLessThan(BigDecimal saldo);
-    List<Conta> findBySaldoLessThanEqual(BigDecimal saldo);
-    List<Conta> findBySaldoGreaterThan(BigDecimal saldo);
-    List<Conta> findBySaldoGreaterThanEqual(BigDecimal saldo);
+public interface AccountRepository extends JpaRepository<Account, Integer> {
+    List<Account> findBySaldoLessThan(BigDecimal saldo);
+    List<Account> findBySaldoLessThanEqual(BigDecimal saldo);
+    List<Account> findBySaldoGreaterThan(BigDecimal saldo);
+    List<Account> findBySaldoGreaterThanEqual(BigDecimal saldo);
 
-    List<Conta> findBySaldoBetween(BigDecimal saldoInicial, BigDecimal saldoFinal);
-    List<Conta> findBySaldoIn(List<BigDecimal> saldos);
+    List<Account> findBySaldoBetween(BigDecimal saldoInicial, BigDecimal saldoFinal);
+    List<Account> findBySaldoIn(List<BigDecimal> saldos);
 
-    List<Conta> findByTipoContaAndSaldoBetweenOrderBySaldo(TipoConta tipoConta, BigDecimal saldoInicial, BigDecimal saldoFinal);
+    List<Account> findByTipoContaAndSaldoBetweenOrderBySaldo(AccountType accountType, BigDecimal saldoInicial, BigDecimal saldoFinal);
 
-    List<Conta> findByUsuario_cpf(String cpf);
+    List<Account> findByUsuario_cpf(String cpf);
 
-    Boolean existsByTipoConta(TipoConta tipoConta);
+    Boolean existsByTipoConta(AccountType accountType);
 
     @Query("select c from Conta c " +
             "where (c.tipoConta = :tipoConta and c.usuario.cpf = :cpf) " +
             "or (c.tipoConta = :tipoConta or c.saldo = :saldo)")
-    List<Conta> findByTipoContaAndCpfOrTipoContaAndSaldo(
-            @Param("tipoConta") TipoConta tipoConta,
+    List<Account> findByTipoContaAndCpfOrTipoContaAndSaldo(
+            @Param("tipoConta") AccountType accountType,
             @Param("cpf") String cpf,
             @Param("saldo") BigDecimal saldo
     );
@@ -40,7 +40,7 @@ public interface ContaRepository extends JpaRepository<Conta, Integer> {
             "where (c.tipo_conta = :tipoConta AND" +
             "c.data_criacao >= :dataCriacao)" +
             "OR c.saldo = :saldo ", nativeQuery = true)
-    List<Conta> findByDataCriacaoAndTipoContaOrSaldo(
+    List<Account> findByDataCriacaoAndTipoContaOrSaldo(
             @Param("dataCriacao") LocalDateTime dataCriacao,
             @Param("tipoConta") LocalDateTime tipoConta,
             @Param("saldo") BigDecimal saldo

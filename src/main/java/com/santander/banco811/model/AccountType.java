@@ -1,6 +1,6 @@
 package com.santander.banco811.model;
 
-public enum TipoConta {
+public enum AccountType {
     PF,
     PJ
 }

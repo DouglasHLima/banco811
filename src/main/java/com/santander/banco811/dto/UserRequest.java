@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
-public class UsuarioRequest {
+public class UserRequest {
     @CPF
     private String cpf;
     @NotNull

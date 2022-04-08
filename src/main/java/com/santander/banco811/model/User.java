@@ -1,7 +1,7 @@
 package com.santander.banco811.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.santander.banco811.dto.UsuarioRequest;
+import com.santander.banco811.dto.UserRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +19,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Usuario {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,15 +39,15 @@ public class Usuario {
     @LastModifiedDate
     private LocalDateTime dataAtualizacao;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    List<Conta> contas;
+    List<Account> accounts;
 
 
-    public Usuario(UsuarioRequest usuarioRequest){
-        this.cpf = usuarioRequest.getCpf();
-        this.nome = usuarioRequest.getNome();
-        this.senha = usuarioRequest.getSenha();
+    public User(UserRequest userRequest){
+        this.cpf = userRequest.getCpf();
+        this.nome = userRequest.getNome();
+        this.senha = userRequest.getSenha();
     }
 
 }

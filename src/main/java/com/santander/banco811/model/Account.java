@@ -17,26 +17,26 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Conta {
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "numero")
-    private Integer numero;
+    private Integer number;
     @Column(name = "agencia")
-    private Integer agencia;
+    private Integer agency;
     @Column(name = "data_criacao")
     @CreatedDate
-    private LocalDateTime dataCriacao;
+    private LocalDateTime criation;
     @Column(name = "data_atualizacao")
     @LastModifiedDate
-    private LocalDateTime dataAtualizacao;
+    private LocalDateTime update;
     @Column(name = "saldo")
-    private BigDecimal saldo;
+    private BigDecimal balance;
     @Column(name = "tipo_conta")
     @Enumerated(EnumType.STRING)
-    private TipoConta tipoConta;
+    private AccountType accountType;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
-    private Usuario usuario;
+    private User user;
 }
