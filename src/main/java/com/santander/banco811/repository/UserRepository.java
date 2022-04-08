@@ -11,25 +11,23 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByNome(String nome);
 
-    List<User> findByNomeAndCpf(String nome, String cpf);
+    List<User> findByNameAndCpf(String nome, String cpf);
 
-    List<User> findByNomeIs(String nome);
-    List<User> findByNomeIsNot(String nome);
+    List<User> findByNameIs(String nome);
+    List<User> findByNameIsNot(String nome);
 
-    List<User> findByNomeIsNull();
-    List<User> findByNomeIsNotNull();
+    List<User> findByNameIsNull();
+    List<User> findByNameIsNotNull();
 
     List<User> findByCpfStartingWith(String cpf);
     List<User> findByCpfEndingWith(String cpf);
-    List<User> findByCpfContaining(String cpf);
+    List<User> findByCpfAccountining(String cpf);
 
 
-    List<User> findByNomeLike(String pattern);
+    List<User> findByNameLike(String pattern);
 
-    List<User> findByDataCriacaoBeforeAndNomeAndCpf(LocalDateTime dataCriacao, String nome, String cpf);
-    List<User> findByDataCriacao(LocalDateTime dataCriacao);
-
-    List<User> findByNomeAndDataCriacaoOrderByNomeAsc(String nome, LocalDateTime dataCriacao);
+    List<User> findByCreationBeforeAndNomeAndCpf(LocalDateTime dataCriacao, String nome, String cpf);
+    List<User> findByCreation(LocalDateTime dataCriacao);
 
     User findByCpf(String cpf);
 }
