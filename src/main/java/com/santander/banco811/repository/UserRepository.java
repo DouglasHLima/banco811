@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     List<User> findByNameLike(String pattern);
 
-    List<User> findByCreationBeforeAndNomeAndCpf(LocalDateTime dataCriacao, String nome, String cpf);
+    List<User> findByCreationBeforeAndNameAndCpf(LocalDateTime dataCriacao, String nome, String cpf);
     List<User> findByCreation(LocalDateTime dataCriacao);
 
     User findByCpf(String cpf);
