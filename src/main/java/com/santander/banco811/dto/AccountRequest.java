@@ -8,10 +8,9 @@ import javax.validation.constraints.NotNull;
 
 @Getter @Setter
 public class AccountRequest {
+    private Integer number;
     @NotNull
-    private Integer numero;
-    @NotNull
-    private Integer agencia;
+    private Integer agency;
     @NotNull
     private AccountType accountType;
 }

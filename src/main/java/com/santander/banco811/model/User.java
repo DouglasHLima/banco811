@@ -1,10 +1,7 @@
 package com.santander.banco811.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.santander.banco811.dto.UserRequest;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -19,6 +16,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
+@Builder
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -27,27 +26,22 @@ public class User {
     @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;
     @Column(name = "senha")
-    private String senha;
-
+    private String password;
+    @Column(name = "login")
+    private String login;
     @Column(name = "nome")
-    private String nome;
+    private String name;
 
     @Column(name = "data_criacao")
     @CreatedDate
-    private LocalDateTime dataCriacao;
+    private LocalDateTime creation;
     @Column(name = "data_atualizacao")
     @LastModifiedDate
-    private LocalDateTime dataAtualizacao;
+    private LocalDateTime update;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     List<Account> accounts;
 
-
-    public User(UserRequest userRequest){
-        this.cpf = userRequest.getCpf();
-        this.nome = userRequest.getNome();
-        this.senha = userRequest.getSenha();
-    }
 
 }

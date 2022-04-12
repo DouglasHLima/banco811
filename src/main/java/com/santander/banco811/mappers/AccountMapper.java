@@ -5,7 +5,10 @@ import com.santander.banco811.dto.AccountResponse;
 import com.santander.banco811.model.Account;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper(
+        componentModel = "spring",
+        uses = {UserMapper.class}
+)
 public interface AccountMapper {
 
     Account toEntity(AccountRequest accountRequest);
