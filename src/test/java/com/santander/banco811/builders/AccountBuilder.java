@@ -1,18 +1,11 @@
 package com.santander.banco811.builders;
 
 
-import com.santander.banco811.dto.Transaction;
 import com.santander.banco811.model.Account;
 import com.santander.banco811.model.AccountType;
-import com.santander.banco811.model.User;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter

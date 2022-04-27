@@ -1,12 +1,8 @@
 package com.santander.banco811.controller;
 
-import com.santander.banco811.assemblers.TransactionModelAssembler;
-import com.santander.banco811.dto.Transaction;
 import com.santander.banco811.dto.TransactionRequest;
 import com.santander.banco811.dto.TransactionResponse;
-import com.santander.banco811.model.AccountType;
 import com.santander.banco811.model.TransactionType;
-import com.santander.banco811.projection.TransactionView;
 import com.santander.banco811.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import lombok.val;

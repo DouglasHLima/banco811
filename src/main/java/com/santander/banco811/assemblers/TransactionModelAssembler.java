@@ -1,8 +1,7 @@
 package com.santander.banco811.assemblers;
 
-import com.santander.banco811.controller.AccountController;
 import com.santander.banco811.controller.TransactionController;
-import com.santander.banco811.dto.Transaction;
+import com.santander.banco811.model.Transaction;
 import com.santander.banco811.dto.TransactionResponse;
 import com.santander.banco811.mappers.TransactionMapper;
 import org.springframework.beans.factory.annotation.Autowired;

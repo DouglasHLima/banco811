@@ -1,7 +1,7 @@
 package com.santander.banco811.service.impl;
 
 import com.santander.banco811.assemblers.TransactionModelAssembler;
-import com.santander.banco811.dto.Transaction;
+import com.santander.banco811.model.Transaction;
 import com.santander.banco811.dto.TransactionRequest;
 import com.santander.banco811.dto.TransactionResponse;
 import com.santander.banco811.excptions.AccountNotFoundException;
@@ -11,7 +11,6 @@ import com.santander.banco811.model.TransactionType;
 import com.santander.banco811.projection.TransactionView;
 import com.santander.banco811.repository.AccountRepository;
 import com.santander.banco811.repository.TransactionRepository;
-import com.santander.banco811.service.AccountService;
 import com.santander.banco811.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
